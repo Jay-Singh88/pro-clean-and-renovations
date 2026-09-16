@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Clean and Renovations | Cleaning, Landscaping & Home Renovations NZ</title>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-dark: #1b5e20;
+      --secondary: #0288d1;
+      --light-bg: #f4f6f8;
+      --text-color: #2c3e50;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: var(--light-bg);
+    }
+
+    /* Navigation */
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a.tab-link.active {
+      color: var(--primary);
+    }
+
+    .nav-links a.tab-link.active::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background-color: var(--primary);
+      margin-top: 4px;
+    }
+
+    .btn-nav {
+      background-color: var(--primary);
+      color: var(--white) !important;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    .btn-nav.active {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-nav.active::after {
+      content: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(27, 94, 32, 0.75), rgba(2, 136, 209, 0.65)), 
+                  url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: var(--white);
+      padding: 0.8rem 2rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background-color 0.3s;
+    }
+
+    .btn-cta:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn-cta-outline {
+      display: inline-block;
+      background-color: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+      padding: 0.75rem 2rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-cta-outline:hover {
+      background-color: var(--white);
+      color: var(--primary-dark);
+    }
+
+    /* Layout Containers */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+    }
+
+    .section-title p {
+      color: #666;
+    }
+
+    /* Services Flex Grid (Balanced Layout) */
+    .services-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      flex: 1 1 calc(33.333% - 2rem);
+      min-width: 280px;
+      max-width: 360px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-content {
+      padding: 1.5rem;
+    }
+
+    .service-content h3 {
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-content p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .badge-new {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Renovation Division Section */
+    .renovation-section {
+      background: linear-gradient(rgba(27, 38, 44, 0.88), rgba(27, 38, 44, 0.92)),
+                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: var(--white);
+      padding: 4rem 1.5rem;
+    }
+
+    .renovation-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .renovation-eyebrow {
+      text-align: center;
+      color: #80d8ff;
+      font-weight: bold;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    .renovation-section .section-title h2 {
+      color: var(--white);
+    }
+
+    .renovation-section .section-title p {
+      color: #cfd8dc;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem 2rem;
+      max-width: 850px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .checklist-grid div {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .check-icon {
+      color: #66bb6a;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .quality-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.5rem;
+      text-align: center;
+      font-weight: 600;
+      color: #80d8ff;
+      margin-bottom: 2.5rem;
+    }
+
+    .renovation-cta {
+      text-align: center;
+    }
+
+    /* Ad pull-quote card */
+    .ad-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 2rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    .ad-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .ad-card p {
+      color: #eceff1;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Contact & Form Section */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .contact-info h3 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--primary);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      width: 100%;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1b262c;
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .service-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      .checklist-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">Pro Clean <span>and Renovations</span></a>
+      <ul class="nav-links">
+        <li><a href="#services" class="tab-link active" data-tab="services">Services</a></li>
+        <li><a href="#renovations" class="tab-link" data-tab="renovations">Renovations</a></li>
+        <li><a href="#contact" class="btn-nav tab-link" data-tab="contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Professional Cleaning, Landscaping & Home Renovations</h1>
+      <p>Keeping your residential and commercial properties immaculate inside and out — and transforming homes across New Zealand with quality renovation work.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-cta tab-link" data-tab="contact">Request a Free Quote</a>
+        <a href="#renovations" class="btn-cta-outline tab-link" data-tab="renovations">Explore Renovations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Flex Section -->
+  <section id="services" class="container tab-content">
+    <div class="section-title">
+      <h2>Our Work & Services</h2>
+      <p>High-quality property care delivered by experienced professionals.</p>
+    </div>
+    
+    <div class="services-flex">
+      
+      <!-- 1. Commercial Cleaning Card -->
+      <div class="service-card">
+        <img src="commercial clean.jpeg">
+        <div class="service-content">
+          <h3>Commercial Cleaning</h3>
+          <p>Detailed cleaning for offices, retail sites, and commercial facilities ensuring a safe, hygienic environment.</p>
+        </div>
+      </div>
+
+      <!-- 2. Residential Cleaning Card -->
+      <div class="service-card">
+        <img src="House clean.jpeg">
+        <div class="service-content">
+          <h3>Residential Cleaning</h3>
+          <p>Regular household cleaning, deep cleans, and move-in/move-out property servicing.</p>
+        </div>
+      </div>
+
+      <!-- 3. New Home First Professional Clean -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Bright, freshly cleaned new home interior">
+        <div class="service-content">
+          <span class="badge-new">NEW</span>
+          <h3>New Home First Professional Clean</h3>
+          <p>A thorough top-to-bottom clean for newly built or newly purchased homes — cabinets, windows, fixtures and floors, ready before you move in.</p>
+        </div>
+      </div>
+
+      <!-- 4. Floor Polishing -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=800&q=80" alt="Polished glossy timber floor in a living room">
+        <div class="service-content">
+          <span class="badge-new">NEW</span>
+          <h3>Floor Polishing</h3>
+          <p>Professional polishing for timber, tile, concrete and vinyl floors, restoring shine and protecting surfaces for the long term.</p>
+        </div>
+      </div>
+
+      <!-- 5. Water & Pressure Washing Card -->
+      <div class="service-card">
+        <img src="water wash.jpeg">
+        <div class="service-content">
+          <h3>Water & Pressure Washing</h3>
+          <p>High-pressure exterior cleaning for driveways, pathways, house washdowns, and outdoor decks.</p>
+        </div>
+      </div>
+
+      <!-- 6. Lawn Mowing Card -->
+      <div class="service-card">
+        <img src="moaing.jpeg">
+        <div class="service-content">
+          <h3>Lawn Mowing & Edging</h3>
+          <p>Precision lawn mowing, hedge trimming, and edge care to keep your gardens and outdoor areas pristine.</p>
+        </div>
+      </div>
+
+      <!-- 7. Landscaping Card -->
+      <div class="service-card">
+        <img src="gardning.jpeg">
+        <div class="service-content">
+          <h3>Landscaping & Grounds Care</h3>
+          <p>Complete outdoor maintenance, soft landscaping, mulching, and yard restoration services.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Renovation Division Section -->
+  <section id="renovations" class="renovation-section tab-content" hidden>
+    <div class="renovation-inner">
+      <div class="renovation-eyebrow">RENOVATE • REFRESH • TRANSFORM</div>
+      <div class="section-title">
+        <h2>🏠 NZ Home Renovation</h2>
+        <p>Thinking about giving your home a fresh new look? 🔨🏡 We provide professional home renovation and improvement services across New Zealand, helping homeowners transform their existing spaces into modern, comfortable and functional homes.</p>
+      </div>
+
+      <div class="checklist-grid">
+        <div><span class="check-icon">✅</span> Kitchen renovations</div>
+        <div><span class="check-icon">✅</span> Bathroom renovations</div>
+        <div><span class="check-icon">✅</span> Flooring & tiling</div>
+        <div><span class="check-icon">✅</span> Painting & decorating</div>
+        <div><span class="check-icon">✅</span> Interior & exterior upgrades</div>
+        <div><span class="check-icon">✅</span> Decks & outdoor improvements</div>
+        <div><span class="check-icon">✅</span> Garage & room conversions</div>
+        <div><span class="check-icon">✅</span> Fencing & landscaping</div>
+        <div><span class="check-icon">✅</span> General building & repair work</div>
+        <div><span class="check-icon">✅</span> Rental property renovations & maintenance</div>
+      </div>
+
+      <div class="ad-card">
+        <h3>🏡 TIME TO RENOVATE? 🔨</h3>
+        <p>Give your NZ home the makeover it deserves! From kitchens & bathrooms to flooring, painting, decks and complete home renovations, our team can take care of your project from start to finish.</p>
+        <p>✔️ Quality workmanship &nbsp; ✔️ Reliable service &nbsp; ✔️ Free quotes &nbsp; ✔️ Residential & rental properties</p>
+        <p>Transform your house into a home you'll love. ❤️</p>
+      </div>
+
+      <div class="quality-badges">
+        <span>Quality Work</span>
+        <span>•</span>
+        <span>Reliable Service</span>
+        <span>•</span>
+        <span>Competitive Pricing</span>
+      </div>
+
+      <div class="renovation-cta">
+        <a href="#contact" class="btn-cta tab-link" data-tab="contact">📞 Get a Free Renovation Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container tab-content" hidden>
+    <div class="section-title">
+      <h2>Contact Us For A Quote</h2>
+      <p>Send us your details and we will get back to you with a direct estimate.</p>
+    </div>
+    
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+        <p>Whether you need ongoing property maintenance or a one-off cleanup, we are here to help.</p>
+        
+        <div class="info-item">
+          <strong>Website:</strong>
+          <p>procleanandrenovations.co.nz</p>
+        </div>
+
+        <div class="info-item">
+          <strong>Service Hours:</strong>
+          <p>Monday - Saturday: 7:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form action="#" method="POST">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="021 123 4567" required>
+
+          <label for="service">Required Service</label>
+          <select id="service" name="service">
+            <optgroup label="Cleaning & Landscaping">
+              <option value="commercial">Commercial Cleaning</option>
+              <option value="residential">Residential Cleaning</option>
+              <option value="first-clean">New Home First Professional Clean</option>
+              <option value="floor-polishing">Floor Polishing</option>
+              <option value="pressure">Pressure Washing</option>
+              <option value="lawn">Lawn Mowing & Edging</option>
+              <option value="landscaping">Landscaping & Grounds Care</option>
+            </optgroup>
+            <optgroup label="Home Renovations">
+              <option value="reno-kitchen">Kitchen Renovation</option>
+              <option value="reno-bathroom">Bathroom Renovation</option>
+              <option value="reno-flooring">Flooring & Tiling</option>
+              <option value="reno-painting">Painting & Decorating</option>
+              <option value="reno-decks">Decks & Outdoor Improvements</option>
+              <option value="reno-general">General Renovation / Other</option>
+            </optgroup>
+          </select>
+
+          <label for="message">Scope of Work</label>
+          <textarea id="message" name="message" rows="4" placeholder="Describe the size of property and work required..." required></textarea>
+
+          <button type="submit">Submit Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Pro Clean and Renovations (procleanandrenovations.co.nz). All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function showTab(tabId, scrollToTop) {
+      document.querySelectorAll('.tab-content').forEach(function (section) {
+        section.hidden = section.id !== tabId;
+      });
+      document.querySelectorAll('.tab-link').forEach(function (link) {
+        link.classList.toggle('active', link.dataset.tab === tabId);
+      });
+      if (scrollToTop) {
+        document.getElementById(tabId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    document.querySelectorAll('.tab-link').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        showTab(link.dataset.tab, true);
+      });
+    });
+
+    if (['services', 'renovations', 'contact'].includes(window.location.hash.slice(1))) {
+      showTab(window.location.hash.slice(1), false);
+    }
+  </script>
+
+</body>
+</html>
