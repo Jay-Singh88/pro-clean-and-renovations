@@ -245,53 +245,25 @@
 
     /* Renovation Division Section */
     .renovation-section {
-      background: linear-gradient(rgba(27, 38, 44, 0.88), rgba(27, 38, 44, 0.92)),
-                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-      color: var(--white);
+      background-color: var(--light-bg);
       padding: 4rem 1.5rem;
     }
 
     .renovation-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .renovation-eyebrow {
       text-align: center;
-      color: #80d8ff;
+      color: var(--secondary);
       font-weight: bold;
       letter-spacing: 0.15em;
       margin-bottom: 0.5rem;
     }
 
-    .renovation-section .section-title h2 {
-      color: var(--white);
-    }
-
-    .renovation-section .section-title p {
-      color: #cfd8dc;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.9rem 2rem;
-      max-width: 850px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .checklist-grid div {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .check-icon {
-      color: #66bb6a;
-      font-weight: bold;
-      font-size: 1.1rem;
+    .renovation-section .services-flex {
+      margin-bottom: 2.5rem;
     }
 
     .quality-badges {
@@ -301,7 +273,7 @@
       gap: 0.5rem 1.5rem;
       text-align: center;
       font-weight: 600;
-      color: #80d8ff;
+      color: var(--primary-dark);
       margin-bottom: 2.5rem;
     }
 
@@ -311,22 +283,24 @@
 
     /* Ad pull-quote card */
     .ad-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 10px;
       padding: 2rem;
       max-width: 650px;
       margin: 0 auto 2.5rem;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
     }
 
     .ad-card h3 {
       font-size: 1.4rem;
       margin-bottom: 0.8rem;
+      color: var(--primary-dark);
     }
 
     .ad-card p {
-      color: #eceff1;
+      color: #555;
       margin-bottom: 0.8rem;
     }
 
@@ -527,28 +501,73 @@
     <div class="renovation-inner">
       <div class="renovation-eyebrow">RENOVATE • REFRESH • TRANSFORM</div>
       <div class="section-title">
-        <h2>🏠 NZ Home Renovation</h2>
-        <p>Thinking about giving your home a fresh new look? 🔨🏡 We provide professional home renovation and improvement services across New Zealand, helping homeowners transform their existing spaces into modern, comfortable and functional homes.</p>
+        <h2>NZ Home Renovation</h2>
+        <p>Thinking about giving your home a fresh new look? We provide professional home renovation and improvement services across New Zealand, helping homeowners transform their existing spaces into modern, comfortable and functional homes.</p>
       </div>
 
-      <div class="checklist-grid">
-        <div><span class="check-icon">✅</span> Kitchen renovations</div>
-        <div><span class="check-icon">✅</span> Bathroom renovations</div>
-        <div><span class="check-icon">✅</span> Flooring & tiling</div>
-        <div><span class="check-icon">✅</span> Painting & decorating</div>
-        <div><span class="check-icon">✅</span> Interior & exterior upgrades</div>
-        <div><span class="check-icon">✅</span> Decks & outdoor improvements</div>
-        <div><span class="check-icon">✅</span> Garage & room conversions</div>
-        <div><span class="check-icon">✅</span> Fencing & landscaping</div>
-        <div><span class="check-icon">✅</span> General building & repair work</div>
-        <div><span class="check-icon">✅</span> Rental property renovations & maintenance</div>
+      <div class="services-flex">
+
+        <!-- Kitchen Renovations -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=800&q=80" alt="Modern renovated kitchen with white cabinetry and hexagonal tile splashback">
+          <div class="service-content">
+            <h3>Kitchen Renovations</h3>
+            <p>Cabinetry, benchtops, splashbacks and layouts redesigned to give your kitchen a modern, functional finish.</p>
+          </div>
+        </div>
+
+        <!-- Bathroom Renovations -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Renovated bathroom with freestanding bathtub and modern vanity">
+          <div class="service-content">
+            <h3>Bathroom Renovations</h3>
+            <p>Full bathroom remodels including vanities, showers, tiling and fixtures, built to last and easy to maintain.</p>
+          </div>
+        </div>
+
+        <!-- Flooring & Tiling -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1661107259637-4e1c55462428?auto=format&fit=crop&w=800&q=80" alt="Freshly tiled bathroom floor and walls">
+          <div class="service-content">
+            <h3>Flooring & Tiling</h3>
+            <p>Precision tiling and flooring installation for kitchens, bathrooms and living spaces across your home.</p>
+          </div>
+        </div>
+
+        <!-- Painting & Decorating -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80" alt="Interior wall being painted with a roller">
+          <div class="service-content">
+            <h3>Painting & Decorating</h3>
+            <p>Interior and exterior painting with clean lines and quality finishes that refresh any room or facade.</p>
+          </div>
+        </div>
+
+        <!-- Decks & Outdoor Improvements -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1574120583586-de8847ae992c?auto=format&fit=crop&w=800&q=80" alt="Timber deck built onto the back of a home">
+          <div class="service-content">
+            <h3>Decks & Outdoor Improvements</h3>
+            <p>Custom timber decks, patios and outdoor living upgrades designed to extend your home's living space.</p>
+          </div>
+        </div>
+
+        <!-- General Renovation & Building Work -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=800&q=80" alt="Interior room mid-renovation with structural work underway">
+          <div class="service-content">
+            <h3>General Renovation & Building</h3>
+            <p>Garage conversions, room additions, fencing and general repair work handled from start to finish.</p>
+          </div>
+        </div>
+
       </div>
 
       <div class="ad-card">
-        <h3>🏡 TIME TO RENOVATE? 🔨</h3>
+        <h3>Time to Renovate?</h3>
         <p>Give your NZ home the makeover it deserves! From kitchens & bathrooms to flooring, painting, decks and complete home renovations, our team can take care of your project from start to finish.</p>
-        <p>✔️ Quality workmanship &nbsp; ✔️ Reliable service &nbsp; ✔️ Free quotes &nbsp; ✔️ Residential & rental properties</p>
-        <p>Transform your house into a home you'll love. ❤️</p>
+        <p>Quality workmanship &nbsp;•&nbsp; Reliable service &nbsp;•&nbsp; Free quotes &nbsp;•&nbsp; Residential & rental properties</p>
+        <p>Transform your house into a home you'll love.</p>
       </div>
 
       <div class="quality-badges">
@@ -560,7 +579,7 @@
       </div>
 
       <div class="renovation-cta">
-        <a href="#contact" class="btn-cta tab-link" data-tab="contact">📞 Get a Free Renovation Quote</a>
+        <a href="#contact" class="btn-cta tab-link" data-tab="contact">Get a Free Renovation Quote</a>
       </div>
     </div>
   </section>
