@@ -646,9 +646,8 @@
           <label for="message">Scope of Work</label>
           <textarea id="message" name="message" rows="4" placeholder="Describe the size of property and work required..." required></textarea>
 
-          <div style="position:absolute; left:-9999px;" aria-hidden="true">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+          <div style="display:none;" aria-hidden="true">
+            <input type="text" id="hpField" name="hpField" tabindex="-1" autocomplete="off">
           </div>
 
           <button type="submit" id="contactSubmit">Submit Request</button>
@@ -700,7 +699,7 @@
         phone: document.getElementById('phone').value,
         service: document.getElementById('service').value,
         message: document.getElementById('message').value,
-        company: document.getElementById('company').value
+        company: document.getElementById('hpField').value
       };
 
       contactSubmit.disabled = true;

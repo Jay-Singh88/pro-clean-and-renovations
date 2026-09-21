@@ -6,8 +6,9 @@ export default async function handler(req, res) {
 
   const { name, email, phone, service, message, company } = req.body || {};
 
-  // Honeypot field - bots fill every field, real users never see/fill "company"
+  // Honeypot field - bots fill every field, real users never see/fill this
   if (company) {
+    console.log('Honeypot tripped, treated as spam:', { name, email });
     return res.status(200).json({ success: true });
   }
 
@@ -45,6 +46,7 @@ ${message}`,
       return res.status(502).json({ error: 'Failed to send message' });
     }
 
+    console.log('Quote request email sent:', { name, email });
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error('Contact form error:', err);
