@@ -612,7 +612,7 @@
       </div>
 
       <div class="contact-form">
-        <form action="#" method="POST">
+        <form id="contactForm">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="John Doe" required>
 
@@ -646,7 +646,13 @@
           <label for="message">Scope of Work</label>
           <textarea id="message" name="message" rows="4" placeholder="Describe the size of property and work required..." required></textarea>
 
-          <button type="submit">Submit Request</button>
+          <div style="position:absolute; left:-9999px;" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" id="contactSubmit">Submit Request</button>
+          <p id="contactStatus" role="status" style="margin-top:1rem; font-weight:600; display:none;"></p>
         </form>
       </div>
     </div>
@@ -680,6 +686,52 @@
     if (['services', 'renovations', 'contact'].includes(window.location.hash.slice(1))) {
       showTab(window.location.hash.slice(1), false);
     }
+
+    var contactForm = document.getElementById('contactForm');
+    var contactStatus = document.getElementById('contactStatus');
+    var contactSubmit = document.getElementById('contactSubmit');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        message: document.getElementById('message').value,
+        company: document.getElementById('company').value
+      };
+
+      contactSubmit.disabled = true;
+      contactSubmit.textContent = 'Sending...';
+      contactStatus.style.display = 'none';
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Request failed');
+          return response.json();
+        })
+        .then(function () {
+          contactForm.reset();
+          contactStatus.textContent = "Thanks! Your request has been sent — we'll be in touch shortly.";
+          contactStatus.style.color = 'var(--primary-dark)';
+          contactStatus.style.display = 'block';
+        })
+        .catch(function () {
+          contactStatus.textContent = 'Sorry, something went wrong sending your request. Please call us or try again.';
+          contactStatus.style.color = '#c62828';
+          contactStatus.style.display = 'block';
+        })
+        .finally(function () {
+          contactSubmit.disabled = false;
+          contactSubmit.textContent = 'Submit Request';
+        });
+    });
   </script>
 
 </body>
